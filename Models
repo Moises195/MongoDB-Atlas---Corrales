@@ -1,0 +1,17 @@
+const Task = mongoose.model('Task', {
+  title: String,
+  description: String,
+  status: String,
+  tags: [String],
+  due_date: Date,
+});
+
+const newTask = new Task({
+  title: "Build Backend",
+  description: "Integrate MongoDB Atlas",
+  status: "Pending",
+  tags: ["backend", "database"],
+  due_date: new Date('2024-12-20'),
+});
+
+newTask.save().then(() => console.log('Task added!'));
